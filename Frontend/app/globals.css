@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #005155;
+  --primary-dark: #134e4a;
+  --primary-mid: #0f766e;
+  --primary-light: #aeefe6;
+  --neutral-bg: #f8f9fa;
+  --neutral-section: #f3f4f5;
+  --neutral-card: #edeeef;
+  --neutral-dark: #191c1d;
+  --neutral-mid: #3e4949;
+  --neutral-muted: #64748b;
+  --accent: #eab308;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-mid: var(--primary-mid);
+  --color-primary-light: var(--primary-light);
+  --color-neutral-bg: var(--neutral-bg);
+  --color-neutral-section: var(--neutral-section);
+  --color-neutral-card: var(--neutral-card);
+  --color-neutral-dark: var(--neutral-dark);
+  --color-neutral-mid: var(--neutral-mid);
+  --color-neutral-muted: var(--neutral-muted);
+  --color-accent: var(--accent);
+  --font-serif: var(--font-dm-serif);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--neutral-bg);
+  color: var(--neutral-dark);
+}
+
+a {
+  transition: all 0.2s ease;
+}
