@@ -12,22 +12,30 @@ interface TeamCardProps {
 }
 
 export default function TeamCard({ name, specialty, bio, imageUrl, imageAlt, href }: TeamCardProps) {
-  const Wrapper: React.ElementType = href ? Link : "div";
+  const content = (
+    <>
+      <Image
+        src={imageUrl}
+        alt={imageAlt ?? name}
+        width={120}
+        height={120}
+        className="mb-4 h-24 w-24 rounded-full object-cover"
+      />
+      <h3 className={`text-lg font-semibold text-neutral-dark ${href ? "group-hover:text-primary" : ""}`}>
+        {name}
+      </h3>
+    </>
+  );
 
   return (
     <article className="rounded-3xl bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-      <Wrapper href={href} className={href ? "group block" : undefined}>
-        <Image
-          src={imageUrl}
-          alt={imageAlt ?? name}
-          width={120}
-          height={120}
-          className="mb-4 h-24 w-24 rounded-full object-cover"
-        />
-        <h3 className={`text-lg font-semibold text-neutral-dark ${href ? "group-hover:text-primary" : ""}`}>
-          {name}
-        </h3>
-      </Wrapper>
+      {href ? (
+        <Link href={href} className="group block">
+          {content}
+        </Link>
+      ) : (
+        <div>{content}</div>
+      )}
       <p className="mb-3 text-sm font-medium text-primary">{specialty}</p>
       <p className="mb-4 text-sm leading-6 text-neutral-muted">{bio}</p>
       <div className="flex gap-2">
