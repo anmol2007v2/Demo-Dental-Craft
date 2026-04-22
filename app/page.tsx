@@ -1,6 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles, Star } from "lucide-react";
+import FaqAccordion from "@/components/FaqAccordion";
+import { homepageFaqs } from "@/data/faqs";
+import Reveal from "@/components/Reveal";
+import { primaryButtonClass } from "@/lib/ui";
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+import PaymentCtaStrip from "@/components/PaymentCtaStrip";
+
+export const metadata: Metadata = buildMetadata({
+  title: "SmileCraft Dental Clinic | Kathmandu",
+  description: "Modern dental care in Lazimpat, Kathmandu — book appointments, explore services, and meet our team.",
+  path: "/",
+});
 
 export default function Home() {
   return (
@@ -22,7 +35,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/book-appointment"
-                className="rounded-2xl bg-primary px-10 py-4 text-center text-base font-semibold text-white shadow-lg shadow-primary/20 transition hover:opacity-90"
+                className={`rounded-2xl bg-primary px-10 py-4 text-center text-base font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-dark ${primaryButtonClass}`}
               >
                 Book Appointment
               </Link>
@@ -61,14 +74,14 @@ export default function Home() {
       <section className="bg-neutral-section py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
+            <Reveal className="md:flex-1">
               <h2 className="font-serif text-4xl text-primary md:text-5xl">
                 Trusted by the community
               </h2>
               <p className="mt-3 text-neutral-mid">
                 Read why our patients love the Smile Craft experience.
               </p>
-            </div>
+            </Reveal>
             <div className="flex rounded-2xl bg-white p-5 shadow-sm">
               <div className="border-r border-neutral-card px-5 text-center">
                 <p className="font-serif text-3xl font-bold text-primary">5.0</p>
@@ -86,27 +99,29 @@ export default function Home() {
               "Modern care and a calm environment. Best dental cleaning I have had.",
               "They explained everything clearly and made the procedure painless.",
             ].map((quote, index) => (
-              <article key={quote} className="rounded-3xl bg-white p-8 shadow-sm">
-                <div className="mb-4 flex gap-1 text-primary">
-                  {Array.from({ length: 5 }).map((_, starIndex) => (
-                    <Star key={`${index}-${starIndex}`} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mb-6 leading-relaxed text-neutral-mid italic">&quot;{quote}&quot;</p>
-                <p className="font-semibold text-neutral-dark">Verified Patient</p>
-              </article>
+              <Reveal key={quote} delayMs={index * 80}>
+                <article className="rounded-3xl bg-white p-8 shadow-sm">
+                  <div className="mb-4 flex gap-1 text-primary">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                      <Star key={`${index}-${starIndex}`} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="mb-6 leading-relaxed text-neutral-mid italic">&quot;{quote}&quot;</p>
+                  <p className="font-semibold text-neutral-dark">Verified Patient</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <div className="mb-14 text-center">
+          <Reveal className="mb-14 text-center">
             <h2 className="font-serif text-4xl text-primary md:text-5xl">Comprehensive Care</h2>
             <p className="mx-auto mt-3 max-w-2xl text-neutral-mid">
               A full suite of modern dental services focused on comfort and lasting outcomes.
             </p>
-          </div>
+          </Reveal>
           <div className="grid auto-rows-[240px] gap-6 md:grid-cols-12">
             <article className="group relative overflow-hidden rounded-3xl bg-primary md:col-span-8">
               <Image
@@ -161,6 +176,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PaymentCtaStrip />
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <Reveal className="mb-12 text-center">
+            <h2 className="font-serif text-4xl text-primary md:text-5xl">FAQs</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-neutral-mid">
+              Quick answers to common questions — if you need anything else, just contact us.
+            </p>
+          </Reveal>
+          <div className="mx-auto max-w-3xl">
+            <FaqAccordion items={homepageFaqs} />
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 py-20 md:px-6">
         <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-gradient-to-br from-primary to-primary-mid p-10 text-center text-white md:p-16">
           <h2 className="font-serif text-4xl md:text-6xl">Ready for your new smile?</h2>
@@ -170,7 +202,7 @@ export default function Home() {
           </p>
           <Link
             href="/book-appointment"
-            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-primary transition hover:opacity-90"
+            className={`mt-8 inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-primary transition hover:opacity-90 ${primaryButtonClass}`}
           >
             Book Your Consultation <ArrowRight className="h-4 w-4" />
           </Link>

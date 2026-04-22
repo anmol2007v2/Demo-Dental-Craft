@@ -197,7 +197,7 @@ Build these **sections in order**, stacked vertically:
   - Large teal icon
   - Service name (`h3`)
   - Description (2–3 lines)
-  - Price range (e.g., "From $X")
+  - Price range (e.g., "From NPR X,XXX")
   - "Book Now" button → links to `/book-appointment?service=...`
 - **Services list:**
   1. General Check-up & Cleaning

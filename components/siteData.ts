@@ -21,56 +21,56 @@ export const services: ServiceItem[] = [
     title: "General Check-up & Cleaning",
     description:
       "Preventive exams and gentle cleaning to keep your oral health in top condition.",
-    price: "From $80",
+    price: "From NPR 10,640",
     icon: HeartPulse,
   },
   {
     title: "Cosmetic Dentistry",
     description:
       "Veneers, bonding, and smile makeovers designed to improve confidence and symmetry.",
-    price: "From $250",
+    price: "From NPR 33,250",
     icon: Sparkles,
   },
   {
     title: "Orthodontics",
     description:
       "Modern braces and aligners to straighten teeth and improve bite alignment.",
-    price: "From $450",
+    price: "From NPR 59,850",
     icon: Smile,
   },
   {
     title: "Dental Implants",
     description:
       "Long-term tooth replacement solutions that restore both function and aesthetics.",
-    price: "From $900",
+    price: "From NPR 119,700",
     icon: Shield,
   },
   {
     title: "Emergency Dental Care",
     description:
       "Fast treatment for severe pain, chipped teeth, infection, or trauma.",
-    price: "From $120",
+    price: "From NPR 15,960",
     icon: AlertCircle,
   },
   {
     title: "Teeth Whitening",
     description:
       "Professional whitening treatments for a brighter smile in minimal sessions.",
-    price: "From $180",
+    price: "From NPR 23,940",
     icon: Activity,
   },
   {
     title: "Root Canal Treatment",
     description:
       "Precise endodontic care to save damaged teeth and reduce discomfort.",
-    price: "From $350",
+    price: "From NPR 46,550",
     icon: Cross,
   },
   {
     title: "Wisdom Tooth Extraction",
     description:
       "Safe removal procedures with comfort-focused surgical care and follow-up.",
-    price: "From $300",
+    price: "From NPR 39,900",
     icon: Scissors,
   },
 ];

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://demo-dental-craft-six.vercel.app/sitemap.xml
+

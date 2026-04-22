@@ -1,6 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Play, Star } from "lucide-react";
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Patient Stories | SmileCraft Dental Clinic",
+  description:
+    "Read real patient stories and reviews from SmileCraft Dental Clinic — and explore before-and-after results.",
+  path: "/patient-stories",
+});
 
 const wallOfLoveReviews = [
   {
@@ -111,6 +120,64 @@ export default function PatientStoriesPage() {
               imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuA7jm54IEWTKbpYNQWl--2SHjyTQf6XmlKogJrvWTdiU9z0xn08JxSJrqwVpdKcudmfOcn26EiEy6juF4jKQxBhHMbjdh972MhEz_TvzUTO94LQWaIp-QEhOm7JLUVfCiU9Ue14chQzES4XMO3CM1QG4LFhaupLenNLtmZAPIaS9UrZ3U7rVnPLfgs_FpNiReLWdcB7-ub85pzDG26I8Ff9JB1TUH_kUnByRnMgXs_jar-ElACvo4W0SW99UQhqyRPNUGUx4U95R8w"
               reverse
             />
+          </div>
+        </section>
+
+        <section className="mb-24">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-mid">
+              Results
+            </p>
+            <h2 className="mt-2 font-serif text-4xl text-neutral-dark">Results Gallery</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-neutral-mid">
+              Before-and-after examples to showcase the kind of outcomes we aim for.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              { label: "Teeth Whitening" },
+              { label: "Cosmetic Bonding" },
+              { label: "Orthodontics" },
+              { label: "Smile Makeover" },
+            ].map((item) => (
+              <article
+                key={item.label}
+                className="overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_40px_rgba(0,81,85,0.06)]"
+              >
+                <div className="grid grid-cols-2">
+                  <div className="relative">
+                    <Image
+                      src="https://placehold.co/400x300?text=Before"
+                      alt={`${item.label} before`}
+                      width={400}
+                      height={300}
+                      className="h-full w-full object-cover"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white">
+                      Before
+                    </span>
+                  </div>
+                  <div className="relative">
+                    <Image
+                      src="https://placehold.co/400x300?text=After"
+                      alt={`${item.label} after`}
+                      width={400}
+                      height={300}
+                      className="h-full w-full object-cover"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white">
+                      After
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                    {item.label}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
